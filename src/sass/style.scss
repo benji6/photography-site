@@ -1,5 +1,5 @@
 body {
-  background-color: #f6f6f6;
+  background-color: #f4f4f4;
   color: #030303;
   font-family: sans-serif;
   margin: 0.5em;
@@ -13,8 +13,6 @@ body {
   }
 
   footer {
-    position: fixed;
-    bottom: 0;
     text-align: center;
   }
 
@@ -25,21 +23,29 @@ body {
 
   nav {
     float: left;
-    margin: 0 1em 0 0;
+    height: 100%;
+    margin: 0 1% 0 0;
     user-select: none;
-    width: 12em;
-
-    ul {
-      list-style: none;
-    }
+    max-width: 20%;
 
     h1 {
+      font-size: 2em;
       margin: 0;
       text-align: center;
     }
 
     li {
       cursor: pointer;
+    }
+
+    ul {
+      font-size: 1.5em;
+      list-style: none;
+
+      ul{
+        font-size: 0.9em;
+        padding: 0 1em;
+      }
     }
 
     .collapsed ul {
@@ -52,9 +58,21 @@ body {
   }
 
   section.description {
-    display: block;
     float: left;
-    width: 20em;
+    margin: 0.5em;
+    width: 30%;
+  }
+
+  section.text {
+    float: left;
+    margin: 1%;
+    width: 75%;
+  }
+
+  table.contactDetails {
+    td {
+      padding-right: 0.5em;
+    }
   }
 
   #mutableContent {

@@ -17,15 +17,18 @@ const createVirtualRoot = {
       h("p", "N.B. A short piece of self-written prose is included as part of this installation and can be found below the individual photographs.")
     ]),
     h("footer", [
-      h("p", "The lapping tongue of a double ended ocean, frothy languid spittle ripples over a coarse bed of sand. Breathing in and out, this boundless body of water obeys the rhythms of a volatile trance; an erratic locomotion that endures whether seen or unseen, heard or unheard. Colossal waves crash against inert rock, effervescent salt water caressing the cracks of this cliff face; a ceaseless pulsating cycle that over thousands of years has etched these deep narrative crags. An uncanny buried scar marks this place, half serpentine half granite, a black jagged line flows south and is lost to the ocean. I am immersed, engulfed by the mesmerising depths of a cool obsidian water, and the world forgets me."),
-      h("p", "The elements of this celestial body are quivering and uncertain forms of energy. The dancing flames of a fire that respires, grows and dies; from ashes to ashes they say: everything is cyclic. A body that is all at once fluid, twitching and writhing from darkness into light. Clean cold air fills these lungs and bleary eyes open to the hazy light of day. The origin of all life is a moist mouth, agape and sighing the sundry melodies of a circumvolving world. From light to dark and back again; the hot moist bed of the earth entombs the form. Eyes close and a torrid, dreamless slumber envelopes you."),
-      h("p", "A winding bronze river is the spinal cord of this gorge. A synapse in the land snaked with a pulsating body of water whose tidal rise and fall is written in the fluctuation of a lunar form that floats beyond human boundaries of perception. This valley is bathed in a liquid golden sunlight, laced with the heavy pink hue of a dusk that falls sharply… From light into darkness and back again: everything is cyclic. The eyes of this world are unblinking, and its rhythms and cycles shall prevail, with or without me.")
+      h("em", [
+        h("p", "The lapping tongue of a double ended ocean, frothy languid spittle ripples over a coarse bed of sand. Breathing in and out, this boundless body of water obeys the rhythms of a volatile trance; an erratic locomotion that endures whether seen or unseen, heard or unheard. Colossal waves crash against inert rock, effervescent salt water caressing the cracks of this cliff face; a ceaseless pulsating cycle that over thousands of years has etched these deep narrative crags. An uncanny buried scar marks this place, half serpentine half granite, a black jagged line flows south and is lost to the ocean. I am immersed, engulfed by the mesmerising depths of a cool obsidian water, and the world forgets me."),
+        h("p", "The elements of this celestial body are quivering and uncertain forms of energy. The dancing flames of a fire that respires, grows and dies; from ashes to ashes they say: everything is cyclic. A body that is all at once fluid, twitching and writhing from darkness into light. Clean cold air fills these lungs and bleary eyes open to the hazy light of day. The origin of all life is a moist mouth, agape and sighing the sundry melodies of a circumvolving world. From light to dark and back again; the hot moist bed of the earth entombs the form. Eyes close and a torrid, dreamless slumber envelopes you."),
+        h("p", "A winding bronze river is the spinal cord of this gorge. A synapse in the land snaked with a pulsating body of water whose tidal rise and fall is written in the fluctuation of a lunar form that floats beyond human boundaries of perception. This valley is bathed in a liquid golden sunlight, laced with the heavy pink hue of a dusk that falls sharply… From light into darkness and back again: everything is cyclic. The eyes of this world are unblinking, and its rhythms and cycles shall prevail, with or without me.")
+      ])
     ]),
     h("section.gallery", R.map((src) => h("img.thumb", {
       oncontextmenu: () => false,
       src
     }), galleryData.Symbiosis.imageSources))
   ]),
+
   Darkroom: () => h("div", [
     h("section.description", [
       h("h2", "Darkroom"),
@@ -36,6 +39,7 @@ const createVirtualRoot = {
       src
     }), galleryData.Darkroom.imageSources))
   ]),
+
   C41: () => h("div", [
     h("section.description", [
       h("h2", "C41"),
@@ -46,6 +50,7 @@ const createVirtualRoot = {
       src
     }), galleryData.C41.imageSources))
   ]),
+
   Gesture: () => h("div", [
     h("section.description", [
       h("h2", "Gesture"),
@@ -56,40 +61,81 @@ const createVirtualRoot = {
       src
     }), galleryData.Gesture.imageSources))
   ]),
+
   Home: () => h("div", [
     h("section.gallery", R.map((src) => h("img.thumb", {
       oncontextmenu: () => false,
       src
     }), galleryData.Home.imageSources))
   ]),
+
   About: () => h("div", [
     h("section.text", [
       h("h2", "About"),
       h("p", "Fine Art Photographer currently enrolled in my final year at Falmouth University studying BA (Hons) Photography. My interest in this medium began at the age of fourteen when I received my first camera, but peaked when I discovered the darkroom and I haven’t looked back since. Over the past five years my practice has developed and matured, especially during my three year Bachelors course, where I have honed my techniques and cultivated my own voice."),
       h("p", "I employ the photographic medium as a means of exploring the realms of science and philosophy. I am interested in the origins of the universe, and the planet we inhabit with all its rhythms and intricacies, questioning where our species belongs in this system and using photography’s stillness to fragment reality and investigate time itself."),
-      h("p", "Dedicated to the analogue medium, I print all of my work within the darkroom, often employing experimental and alternative techniques to create unique photographs with depth and aura. Through both my practice and my personal work I am constantly investigating how reality can be captured, preserved and transformed through the lens; my images aim to explore and convey how the intricacies of the human form and psyche can be depicted through the visual language of the photographic medium.")
+      h("p", "Dedicated to the analogue medium, I print all of my work within the darkroom, often employing experimental and alternative techniques to create unique photographs with depth and aura. Through both my practice and my personal work I am constantly investigating how reality can be captured, preserved and transformed through the lens; my images aim to explore and convey how the intricacies of the human form and psyche can be depicted through the visual language of the photographic medium."),
     ])
   ]),
+
   Contact: () => h("div", [
     h("section.text", [
       h("h2", "Contact"),
-      h("p", "Email: Teddy@Teddy-Hall.co.uk"),
-      h("p", "Telephone: 07904410599"),
-      h("p", "Social Media Links: https://instagram.com/teddy.hall"),
-      h("p", "https://twitter.com/teddyhall_"),
+      h("table.contactDetails", [
+        h("tr", [
+          h("td", "Email: "),
+          h("td", h("a", {
+            href: "mailto:Teddy@Teddy-Hall.co.uk"
+          }, "Teddy@Teddy-Hall.co.uk")),
+        ]),
+        h("tr", [
+          h("td", "Telephone: "),
+          h("td", "07904410599"),
+        ]),
+        h("tr", [
+          h("td", "Social Media Links: "),
+          h("td", h("a", {
+            href: "https://instagram.com/teddy.hall"
+          }, "https://instagram.com/teddy.hall")),
+        ]),
+        h("tr", [
+          h("td"),
+          h("td", h("a", {
+            href: "https://twitter.com/teddyhall_"
+          }, "https://twitter.com/teddyhall_")),
+        ]),
+      ]),
     ])
   ]),
+
   Exhibitions: () => h("div", [
     h("section.text", [
       h("h2", "Exhibitions"),
-      h("h3", "Upcoming:"),
-      h("p", "Fresh Water Tears | ‘The Church of the Red Light’ | Group Exhibition celebrating photography’s alchemic and analogue origins | 4 weeks | 23rd March – 20th April 2015 | The Gallery, Falmouth University, TR10 9FE"),
-      h("h3", "Past:"),
-      h("p", "Symbiosis | Group Exhibition by selected BA Photography students at Falmouth University | 2 weeks | 9th – 23rd March 2015 | The Gallery, Falmouth University, TR10 9FE"),
-      h("p", "Carbon Copies | 'Coasting' | Group Fine Art and Photography Exhibition | Kemptown, Brighton | 8th - 9th August 2014 | Info available at: http://coastingexhibition.wordpress.com"),
-      h("p", "Carbon Copies | Final Year Exhibition | Group Exhibition by Level 2 BA Photography students at Falmouth University | 1 week | June 2014 | Royal Cornwall Polytechnic Society, Falmouth, TR11 3EG"),
-      h("p", "Ephemeral | Group Exhibition by Level 2 and Level 3 BA Photography students at Falmouth University | 1 week | March 2014 | Falmouth University, TR10 9FE"),
-      h("p", "Chernobyl Studio Set Design | Group Exhibition | 1 week | February 2014 | Falmouth University, TR10 9FE")
+      h("h3", h("u", "Upcoming:")),
+      h("p", [
+        h("b", "Fresh Water Tears"),
+        " | ‘The Church of the Red Light’ | Group Exhibition celebrating photography’s alchemic and analogue origins | 4 weeks | 23rd March – 20th April 2015 | The Gallery, Falmouth University, TR10 9FE"
+      ]),
+      h("h3", h("u", "Past:")),
+      h("p", [
+        h("b", "Symbiosis"),
+        " | Group Exhibition by selected BA Photography students at Falmouth University | 2 weeks | 9th – 23rd March 2015 | The Gallery, Falmouth University, TR10 9FE"
+      ]),
+      h("p", [
+        h("b", "Carbon Copies"),
+        " | 'Coasting' | Group Fine Art and Photography Exhibition | Kemptown, Brighton | 8th - 9th August 2014 | Info available at: ",
+        h("a", {
+          href: "http://coastingexhibition.wordpress.com"
+        }, "http://coastingexhibition.wordpress.com")
+      ]),
+      h("p", [
+        h("b", "Ephemeral"),
+        " | Group Exhibition by Level 2 and Level 3 BA Photography students at Falmouth University | 1 week | March 2014 | Falmouth University, TR10 9FE"
+      ]),
+      h("p", [
+        h("b", "Chernobyl Studio Set Design"),
+        " | Group Exhibition | 1 week | February 2014 | Falmouth University, TR10 9FE"
+      ])
     ])
   ]),
 };
