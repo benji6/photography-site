@@ -9,6 +9,6 @@ module.exports = () => {
 
   R.forEach(
     (link) => link.onclick = () => render(link.textContent),
-    R.filter((liEl) => !liEl.children.length, [].slice.call(document.querySelectorAll('li')))
+    R.filter((liEl) => !liEl.children.length, [].slice.call(document.querySelectorAll('nav > h1, nav li')))
   );
 };

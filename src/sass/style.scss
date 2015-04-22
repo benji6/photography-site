@@ -13,7 +13,10 @@ body {
   }
 
   footer {
+    float: left;
+    margin: 0.5em;
     text-align: center;
+    width: 40%;
   }
 
   img {
@@ -27,11 +30,12 @@ body {
     margin: 0 1% 0 0;
     user-select: none;
     max-width: 20%;
+    text-overflow: ellipsis;
 
     h1 {
+      cursor: pointer;
       font-size: 2em;
       margin: 0;
-      text-align: center;
     }
 
     li {
