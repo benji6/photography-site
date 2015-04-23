@@ -41,7 +41,7 @@ body {
   nav {
     float: left;
     height: 100%;
-    margin: 0 1%;
+    margin: 1%;
     user-select: none;
     text-overflow: ellipsis;
 
@@ -92,11 +92,9 @@ body {
       }
 
       div.images {
-        width: 9999em;
+        white-space: nowrap;
 
         img.thumb {
-          display: inline-block;
-          float: left;
           margin: $topBottomMargin 1em;
           height: $imageHeight;
         }
