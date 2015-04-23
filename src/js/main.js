@@ -1,3 +1,1 @@
-const createNavEvents = require('./createNavEvents.js');
-
-createNavEvents();
+require('./Controller.js')();

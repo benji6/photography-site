@@ -7,7 +7,7 @@ module.exports = function () {
     Home: {
       imageSources: [
         "images/Gesture/13.jpg"
-      ]
+      ],
     }
   };
 
@@ -15,11 +15,9 @@ module.exports = function () {
     galleriesData[galleryName] = {
       imageSources: R.map(function (filename) {
         return path.join('images', galleryName, filename);
-      }, fs.readdirSync(path.join('dist/images/', galleryName)))
+      }, fs.readdirSync(path.join('dist/images/', galleryName))),
     };
   }, fs.readdirSync('dist/images'));
-
-
 
   fs.writeFileSync('./src/js/data/galleryData.js', 'module.exports = ' +
     JSON.stringify(galleriesData) +
