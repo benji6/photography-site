@@ -40,6 +40,7 @@ body {
 
   nav {
     float: left;
+    font-size: 1.5em;
     height: 100%;
     margin: 1%;
     user-select: none;
@@ -53,13 +54,15 @@ body {
 
     ul {
       list-style: none;
-      padding: 0 0 0 1em;
+      padding: 0 0 0 0.5em;
 
       li {
         cursor: pointer;
+        margin: 0;
+        padding: 0.4em;
       }
 
-      ul{
+      ul {
         font-size: 0.9em;
       }
     }
