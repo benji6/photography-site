@@ -4,11 +4,36 @@ const h = require('virtual-dom/h');
 const patch = require('virtual-dom/patch');
 const R = require('ramda');
 const galleryData = require('./data/galleryData.js');
+const keyboardListeners = require('./keyboardListeners.js');
 
-var container = document.querySelector("#mutableContent");
+const createImagesVirtualDiv = (viewName) => {
+  const closeModal = () => {
+    keyboardListeners.escape = () => {};
+    render(viewName);
+  };
+
+  return h("div.images", R.map((src) => h("img.thumb", {
+    oncontextmenu: () => false,
+    onclick: () => {
+      keyboardListeners.escape = closeModal;
+      const newVirtualRoot = h("div.modalWindow", [
+        h("img", {
+          oncontextmenu: () => false,
+          src
+        }),
+        h("div.clickArea", {
+          onclick: closeModal
+        })
+      ]);
+      patch(domRoot, diff(virtualRoot, newVirtualRoot));
+      virtualRoot = newVirtualRoot;
+    },
+    src
+  }), galleryData[viewName].imageSources));
+};
 
 const createVirtualRoot = {
-  Symbiosis: () => h("div", [
+  Symbiosis: () => h("div#mutableContent", [
     h("section.description", [
       h("h2", "Symbiosis"),
       h("p", "This is my latest body of work – an installation piece - which pre-empts the Final Major Project I have created as part of my BA (Hons) Photography degree at Falmouth University:"),
@@ -16,51 +41,41 @@ const createVirtualRoot = {
       h("p", "Over several months I have captured an array of fragile moments that celebrate the kinetic and intricate nature of life as we know it. Through a cyclical process of shooting, processing, darkroom printing and editing the collection, I finally reduced it to a final set of photographs that I feel collude both the beautiful and the sublime in a clamour of texture, light and form."),
       h("p", "N.B. A short piece of self-written prose is included as part of this installation and can be found below the individual photographs.")
     ]),
-    h("section.gallery", R.map((src) => h("img.thumb", {
-      oncontextmenu: () => false,
-      src
-    }), galleryData.Symbiosis.imageSources)),
-    h("footer", h("em", [
+    h("section.gallery", [
+      createImagesVirtualDiv("Symbiosis"),
+      h("aside", h("em", [
         h("p", "The lapping tongue of a double ended ocean, frothy languid spittle ripples over a coarse bed of sand. Breathing in and out, this boundless body of water obeys the rhythms of a volatile trance; an erratic locomotion that endures whether seen or unseen, heard or unheard. Colossal waves crash against inert rock, effervescent salt water caressing the cracks of this cliff face; a ceaseless pulsating cycle that over thousands of years has etched these deep narrative crags. An uncanny buried scar marks this place, half serpentine half granite, a black jagged line flows south and is lost to the ocean. I am immersed, engulfed by the mesmerising depths of a cool obsidian water, and the world forgets me."),
         h("p", "The elements of this celestial body are quivering and uncertain forms of energy. The dancing flames of a fire that respires, grows and dies; from ashes to ashes they say: everything is cyclic. A body that is all at once fluid, twitching and writhing from darkness into light. Clean cold air fills these lungs and bleary eyes open to the hazy light of day. The origin of all life is a moist mouth, agape and sighing the sundry melodies of a circumvolving world. From light to dark and back again; the hot moist bed of the earth entombs the form. Eyes close and a torrid, dreamless slumber envelopes you."),
         h("p", "A winding bronze river is the spinal cord of this gorge. A synapse in the land snaked with a pulsating body of water whose tidal rise and fall is written in the fluctuation of a lunar form that floats beyond human boundaries of perception. This valley is bathed in a liquid golden sunlight, laced with the heavy pink hue of a dusk that falls sharply… From light into darkness and back again: everything is cyclic. The eyes of this world are unblinking, and its rhythms and cycles shall prevail, with or without me.")
       ]))
+    ])
   ]),
 
-  Darkroom: () => h("div", [
+  Darkroom: () => h("div#mutableContent", [
     h("section.description", [
       h("h2", "Darkroom"),
       h("p", "A collection of darkroom prints created over the past five years, all via alternative and experimental methods. The camera is a tool I employ to document the world around me, and it is only within the darkroom that I am then able to unlock the true potential of the latent image. By impressing my own visions and emotions upon each image, and embracing the volatile alchemical nature of the darkroom process, I am able to create dreamlike pieces that lay somewhere between illusion and reality.")
     ]),
-    h("section.gallery", R.map((src) => h("img.thumb", {
-      oncontextmenu: () => false,
-      src
-    }), galleryData.Darkroom.imageSources))
+    h("section.gallery", createImagesVirtualDiv("Darkroom")),
   ]),
 
-  C41: () => h("div", [
+  C41: () => h("div#mutableContent", [
     h("section.description", [
       h("h2", "C41"),
       h("p", "Twelve of my most vivid colour analogue photographs. I am primarily a black and white darkroom based practitioner, but in the summer months I often photograph with C41 as a means of better capturing the kinetic atmosphere and the stunning light.")
     ]),
-    h("section.gallery", R.map((src) => h("img.thumb", {
-      oncontextmenu: () => false,
-      src
-    }), galleryData.C41.imageSources))
+    h("section.gallery", createImagesVirtualDiv("C41")),
   ]),
 
-  Gesture: () => h("div", [
+  Gesture: () => h("div#mutableContent", [
     h("section.description", [
       h("h2", "Gesture"),
       h("p", "Alongside my conceptual work I am constantly producing a stream of personal work. Always armed with my 35mm SLR, I love to photograph my surroundings and encounters, and this is a collection of some of the most intriguing and fragile moments I have framed with my lens over the past five years. Embracing a monochrome palette and a high contrast aesthetic, I am curating a collection of still fragments from my own life that I hope will continue to expand and flourish alongside my practice; inspiration is everywhere.")
     ]),
-    h("section.gallery", R.map((src) => h("img.thumb", {
-      oncontextmenu: () => false,
-      src
-    }), galleryData.Gesture.imageSources))
+    h("section.gallery", createImagesVirtualDiv("Gesture")),
   ]),
 
-  About: () => h("div", [
+  About: () => h("div#mutableContent", [
     h("section.text", [
       h("h2", "About"),
       h("p", "Fine Art Photographer currently enrolled in my final year at Falmouth University studying BA (Hons) Photography. My interest in this medium began at the age of fourteen when I received my first camera, but peaked when I discovered the darkroom and I haven’t looked back since. Over the past five years my practice has developed and matured, especially during my three year Bachelors course, where I have honed my techniques and cultivated my own voice."),
@@ -69,7 +84,7 @@ const createVirtualRoot = {
     ])
   ]),
 
-  Contact: () => h("div", [
+  Contact: () => h("div#mutableContent", [
     h("section.text", [
       h("h2", "Contact"),
       h("table.contactDetails", [
@@ -99,7 +114,7 @@ const createVirtualRoot = {
     ])
   ]),
 
-  Exhibitions: () => h("div", [
+  Exhibitions: () => h("div#mutableContent", [
     h("section.text", [
       h("h2", "Exhibitions"),
       h("h3", h("u", "Upcoming:")),
@@ -130,19 +145,20 @@ const createVirtualRoot = {
     ])
   ]),
 
-  "Teddy Hall Photography": () => h("div", [
-    h("section.gallery", R.map((src) => h("img.thumb", {
-      oncontextmenu: () => false,
-      src
-    }), galleryData.Home.imageSources))
+  "Home": () => h("div#mutableContent", [
+    h("section.gallery", createImagesVirtualDiv("Home")),
   ]),
 };
 
-var virtualRoot = createVirtualRoot["Teddy Hall Photography"]();
-const domRoot = container.appendChild(createElement(virtualRoot));
+createVirtualRoot["Teddy Hall Photography"] = createVirtualRoot.Home;
 
-module.exports = (viewName) => {
+var virtualRoot = createVirtualRoot.Home();
+const domRoot = document.body.appendChild(createElement(virtualRoot));
+
+const render = (viewName) => {
   const newVirtualRoot = createVirtualRoot[viewName]();
   patch(domRoot, diff(virtualRoot, newVirtualRoot));
   virtualRoot = newVirtualRoot;
 };
+
+module.exports = render;

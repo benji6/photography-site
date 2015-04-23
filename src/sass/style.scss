@@ -1,54 +1,65 @@
 body {
-  background-color: #f4f4f4;
-  color: #030303;
+  background-color: #f3f3f3;
+  color: #040404;
   font-family: sans-serif;
-  margin: 0.5em;
+  margin: 0;
 
-  aside {
+  div.modalWindow {
+    background-color: #000;
+    height: 100%;
     position: fixed;
-    right: 1em;
-    text-align: right;
     top: 0;
     width: 100%;
-  }
 
-  footer {
-    float: left;
-    margin: 0.5em;
-    text-align: center;
-    width: 40%;
+    div.clickArea {
+      cursor: pointer;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    img {
+      bottom: 0;
+      display: block;
+      left: 0;
+      max-height: 100%;
+      max-width: 100%;
+      margin: auto;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
   }
 
   img {
-    display: inline-block;
-    float: left;
+    cursor: pointer;
+    user-select: none;
   }
 
   nav {
     float: left;
     height: 100%;
-    margin: 0 1% 0 0;
+    margin: 0 1%;
     user-select: none;
-    max-width: 20%;
     text-overflow: ellipsis;
 
     h1 {
       cursor: pointer;
-      font-size: 2em;
+      hyphens: auto;
       margin: 0;
     }
 
-    li {
-      cursor: pointer;
-    }
-
     ul {
-      font-size: 1.5em;
       list-style: none;
+      padding: 0 0 0 1em;
+
+      li {
+        cursor: pointer;
+      }
 
       ul{
         font-size: 0.9em;
-        padding: 0 1em;
       }
     }
 
@@ -57,34 +68,50 @@ body {
     }
   }
 
-  section.gallery {
-
-  }
-
-  section.description {
-    float: left;
-    margin: 0.5em;
-    width: 30%;
-  }
-
-  section.text {
-    float: left;
-    margin: 1%;
-    width: 75%;
-  }
-
-  table.contactDetails {
-    td {
-      padding-right: 0.5em;
-    }
-  }
-
   #mutableContent {
-    .gallery {
-      width: 1000em;
+    $imageHeight: 80vh;
+    $topBottomMargin: (100vh - 3vh - $imageHeight) / 2;
+
+    section.description {
+      float: left;
+      margin: $topBottomMargin 0.5em;
+      width: 30%;
+
+      h2 {
+        margin-top: 0;
+      }
     }
-    .thumb {
-      max-height: 80vh;
+
+    section.gallery {
+      aside {
+        float: left;
+        margin: 0.5em;
+        text-align: center;
+      }
+
+      div.images {
+        margin-right: -9999em;
+        white-space: nowrap;
+
+        img.thumb {
+          display: inline-block;
+          float: left;
+          margin: $topBottomMargin 1em;
+          height: $imageHeight;
+        }
+      }
+    }
+
+    section.text {
+      float: left;
+      margin: 1%;
+      width: 75%;
+    }
+
+    table.contactDetails {
+      td {
+        padding-right: 0.5em;
+      }
     }
   }
 }
