@@ -131,15 +131,17 @@ module.exports = (model, controller) => {
     ]),
   };
 
-  const createModalVirtualRoot = (src) => h("div.modalWindow", [
-    h("img", {
-      oncontextmenu: () => false,
-      src
-    }),
-    h("div.clickArea", {
-      onclick: controller.closeModal
-    })
-  ]);
+  const createModalVirtualRoot = (src) => {
+    return h("div.modalWindow", [
+      h("img", {
+        oncontextmenu: () => false,
+        src
+      }),
+      h("div.clickArea", {
+        onclick: controller.closeModal,
+      })
+    ]);
+  };
 
   var virtualRoot = createVirtualRoot.Home();
   const domRoot = document.body.appendChild(createElement(virtualRoot));

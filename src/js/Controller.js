@@ -2,7 +2,7 @@ const createNavEvents = require('./createNavEvents.js');
 const galleryData = require('./data/galleryData.js');
 const Model = require('./Model.js');
 const View = require('./View.js');
-const keyboardListeners = require('./keyboardListeners.js');
+const ui = require('./ui.js');
 
 module.exports = () => {
   const model = Model(galleryData);
@@ -19,24 +19,23 @@ module.exports = () => {
   controller.openModal = (src) => {
     model.setCurrentImage(src);
     model.isModal = true;
-    keyboardListeners.escape = controller.closeModal;
-    keyboardListeners.left = () => {
+    ui.setEscape(controller.closeModal);
+    ui.setLeft(() => {
       model.setPrevImage();
       view.render();
-    };
-    keyboardListeners.right = () => {
+    });
+    ui.setRight(() => {
       model.setNextImage();
       view.render();
-    };
+    });
     view.render();
   };
 
   controller.closeModal = () => {
-    keyboardListeners.escape = () => {};
+    ui.reset();
     model.isModal = false;
     view.render();
   };
-
 
   view.render();
 };

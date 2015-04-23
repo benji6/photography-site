@@ -2,6 +2,7 @@ body {
   background-color: #f3f3f3;
   color: #040404;
   font-family: sans-serif;
+  font-size: 0.95em;
   margin: 0;
 
   div.modalWindow {
@@ -73,6 +74,7 @@ body {
     $topBottomMargin: (100vh - 3vh - $imageHeight) / 2;
 
     section.description {
+      font-size: 0.85em;
       float: left;
       margin: $topBottomMargin 0.5em;
       width: 30%;
@@ -90,8 +92,7 @@ body {
       }
 
       div.images {
-        margin-right: -9999em;
-        white-space: nowrap;
+        width: 9999em;
 
         img.thumb {
           display: inline-block;
