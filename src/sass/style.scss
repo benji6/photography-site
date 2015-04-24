@@ -40,11 +40,10 @@ body {
 
   nav {
     float: left;
-    font-size: 1.5em;
+    font-size: 1.1em;
     height: 100%;
-    margin: 1%;
+    margin: 0 1%;
     user-select: none;
-    text-overflow: ellipsis;
 
     h1 {
       cursor: pointer;
@@ -59,9 +58,19 @@ body {
       li {
         cursor: pointer;
         margin: 0;
-        padding: 0.4em;
+        padding: 1em 0 0 0;
+
+        div {
+          height: 100%;
+          padding: 1em 0 0 0;
+          width: 100%;
+        }
       }
 
+      li.collapsed, li.expanded {
+        padding: 0;
+      }
+      
       ul {
         font-size: 0.9em;
       }

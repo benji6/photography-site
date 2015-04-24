@@ -153,7 +153,7 @@ module.exports = (model, controller) => {
         newVirtualRoot = createModalVirtualRoot(model.getCurrentImage());
       } else {
         var viewName = model.getViewName();
-        if (viewName === "Teddy Hall" || viewName === "Photography") {
+        if (viewName === "Teddy HallPhotography") {
           viewName = "Home";
         }
         newVirtualRoot = createVirtualRoot[viewName]();
