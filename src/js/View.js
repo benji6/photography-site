@@ -14,7 +14,7 @@ module.exports = (model, controller) => {
   };
 
   const createVirtualRoot = {
-    Symbiosis: () => h("div#mutableContent", [
+    Symbiosis: () => h("div", [
       h("section.description", [
         h("h2", "Symbiosis"),
         h("p", "This is my latest body of work – an installation piece - which pre-empts the Final Major Project I have created as part of my BA (Hons) Photography degree at Falmouth University:"),
@@ -32,7 +32,7 @@ module.exports = (model, controller) => {
       ])
     ]),
 
-    Darkroom: () => h("div#mutableContent", [
+    Darkroom: () => h("div", [
       h("section.description", [
         h("h2", "Darkroom"),
         h("p", "A collection of darkroom prints created over the past five years, all via alternative and experimental methods. The camera is a tool I employ to document the world around me, and it is only within the darkroom that I am then able to unlock the true potential of the latent image. By impressing my own visions and emotions upon each image, and embracing the volatile alchemical nature of the darkroom process, I am able to create dreamlike pieces that lay somewhere between illusion and reality.")
@@ -40,7 +40,7 @@ module.exports = (model, controller) => {
       h("section.gallery", createImagesVirtualDiv("Darkroom")),
     ]),
 
-    C41: () => h("div#mutableContent", [
+    C41: () => h("div", [
       h("section.description", [
         h("h2", "C41"),
         h("p", "Twelve of my most vivid colour analogue photographs. I am primarily a black and white darkroom based practitioner, but in the summer months I often photograph with C41 as a means of better capturing the kinetic atmosphere and the stunning light.")
@@ -48,7 +48,7 @@ module.exports = (model, controller) => {
       h("section.gallery", createImagesVirtualDiv("C41")),
     ]),
 
-    Gesture: () => h("div#mutableContent", [
+    Gesture: () => h("div", [
       h("section.description", [
         h("h2", "Gesture"),
         h("p", "Alongside my conceptual work I am constantly producing a stream of personal work. Always armed with my 35mm SLR, I love to photograph my surroundings and encounters, and this is a collection of some of the most intriguing and fragile moments I have framed with my lens over the past five years. Embracing a monochrome palette and a high contrast aesthetic, I am curating a collection of still fragments from my own life that I hope will continue to expand and flourish alongside my practice; inspiration is everywhere.")
@@ -56,7 +56,7 @@ module.exports = (model, controller) => {
       h("section.gallery", createImagesVirtualDiv("Gesture")),
     ]),
 
-    About: () => h("div#mutableContent", [
+    About: () => h("div", [
       h("section.text", [
         h("h2", "About"),
         h("p", "Fine Art Photographer currently enrolled in my final year at Falmouth University studying BA (Hons) Photography. My interest in this medium began at the age of fourteen when I received my first camera, but peaked when I discovered the darkroom and I haven’t looked back since. Over the past five years my practice has developed and matured, especially during my three year Bachelors course, where I have honed my techniques and cultivated my own voice."),
@@ -65,45 +65,47 @@ module.exports = (model, controller) => {
       ])
     ]),
 
-    Contact: () => h("div#mutableContent", [
-      h("section.text", [
-        h("h2", "Contact"),
-        h("table.contactDetails", [
-          h("tr", [
-            h("td", "Email: "),
-            h("td", h("a", {
-              href: "mailto:Teddy@Teddy-Hall.co.uk"
-            }, "Teddy@Teddy-Hall.co.uk")),
-          ]),
-          h("tr", [
-            h("td", "Telephone: "),
-            h("td", "07904410599"),
-          ]),
-          h("tr", [
-            h("td", "Social Media Links: "),
-            h("td", h("a", {
-              href: "https://instagram.com/teddy.hall"
-            }, "https://instagram.com/teddy.hall")),
-          ]),
-          h("tr", [
-            h("td"),
-            h("td", h("a", {
-              href: "https://twitter.com/teddyhall_"
-            }, "https://twitter.com/teddyhall_")),
-          ]),
+    Contact: () => h("div", h("div.contact_details", [
+      h("h2", "Contact"),
+      h("table.contactDetails", [
+        h("tr", [
+          h("td", "Email: "),
+          h("td", h("a", {
+            href: "mailto:Teddy@Teddy-Hall.co.uk"
+          }, "Teddy@Teddy-Hall.co.uk")),
+        ]),
+        h("tr", [
+          h("td", "Telephone: "),
+          h("td", "07904410599"),
+        ]),
+        h("tr", [
+          h("td", "Social Media Links: "),
+          h("td", h("a", {
+            href: "https://instagram.com/teddy.hall"
+          }, "https://instagram.com/teddy.hall")),
+        ]),
+        h("tr", [
+          h("td"),
+          h("td", h("a", {
+            href: "https://twitter.com/teddyhall_"
+          }, "https://twitter.com/teddyhall_")),
         ]),
       ])
-    ]),
+    ])),
 
-    Exhibitions: () => h("div#mutableContent", [
+    Exhibitions: () => h("div", [
       h("section.text", [
         h("h2", "Exhibitions"),
         h("h3", h("u", "Upcoming:")),
         h("p", [
+          h("b", "Free Range 2015"),
+          " | Falmouth University Graduate Show 18th - 22nd June. I am immensely excited to be exhibiting my Final Major Project as part of the Free Range collective this year at the Old Truman Brewery in Bricklane, London. Opening night is Thursday 18th June from 6pm | The Old Truman Brewery, Brick Lane, London, E1 6QL"
+        ]),
+        h("h3", h("u", "Past:")),
+        h("p", [
           h("b", "Fresh Water Tears"),
           " | ‘The Church of the Red Light’ | Group Exhibition celebrating photography’s alchemic and analogue origins | 4 weeks | 23rd March – 20th April 2015 | The Gallery, Falmouth University, TR10 9FE"
         ]),
-        h("h3", h("u", "Past:")),
         h("p", [
           h("b", "Symbiosis"),
           " | Group Exhibition by selected BA Photography students at Falmouth University | 2 weeks | 9th – 23rd March 2015 | The Gallery, Falmouth University, TR10 9FE"
@@ -126,25 +128,25 @@ module.exports = (model, controller) => {
       ])
     ]),
 
-    "Home": () => h("div#mutableContent", [
+    "Home": () => h("div", [
       h("section.gallery", createImagesVirtualDiv("Home")),
     ]),
   };
 
-  const createModalVirtualRoot = (src) => {
-    return h("div.modalWindow", [
-      h("img", {
-        oncontextmenu: () => false,
-        src
-      }),
-      h("div.clickArea", {
-        onclick: controller.closeModal,
-      })
-    ]);
-  };
+  const createModalVirtualRoot = (src) => h("div.modalWindow", [
+    h("img", {
+      oncontextmenu: () => false,
+      src
+    }),
+    h("div.clickArea", {
+      onclick: controller.closeModal,
+      oncontextmenu: () => false,
+    })
+  ]);
 
   var virtualRoot = createVirtualRoot.Home();
-  const domRoot = document.body.appendChild(createElement(virtualRoot));
+  const domRoot = document.querySelector("#mutable_content");
+  domRoot.appendChild(createElement(virtualRoot));
 
   return {
     render: () => {
