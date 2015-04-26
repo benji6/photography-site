@@ -1,4 +1,5 @@
 const R = require('ramda');
+const navLinks = require('./data/navLinks.js');
 
 module.exports = (controller) => {
   R.forEach((element) =>
@@ -6,8 +7,6 @@ module.exports = (controller) => {
       "expanded" :
       "collapsed", [].slice.call(document.querySelectorAll("nav > ul > li > div")));
 
-  R.forEach((link) => link.onclick = () => window.location.hash = link.textContent,
-    R.filter((element) => element.tagName !== "LI" || !element.children.length, [].slice.call(document.querySelectorAll("nav li"))));
-
-    document.querySelector("nav > div.home").onclick = () => window.location.hash = "Home"; 
+  R.forEach((link) => link.onclick = () => window.location.hash = link.id,
+  R.map((str) => document.querySelector(`#${str}`), navLinks));
 };

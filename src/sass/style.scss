@@ -52,8 +52,8 @@ body {
   nav {
     float: left;
     font-size: 1.1em;
-    min-height: 100vh;
-    margin: 0 2em 0 0.5em;
+    min-height: 90vh;
+    padding: 0 2em 0 0.5em;
     user-select: none;
 
     div.home {
@@ -99,12 +99,13 @@ body {
 
   #mutable_content {
     $imageHeight: 80vh;
-    $topBottomMargin: (100vh - 3vh - $imageHeight) / 2;
+    $topMargin: (100vh - 3vh - $imageHeight) / 2;
 
     .description {
       font-size: 0.85em;
       float: left;
-      margin: $topBottomMargin 0.5em;
+      margin: 0 0.5em;
+      padding : $topMargin 0 0 0;
       width: 30%;
 
       h2 {
@@ -123,10 +124,16 @@ body {
         white-space: nowrap;
 
         img.thumb {
-          margin: $topBottomMargin 1em;
+          margin: $topMargin 1em 0 1em;
           height: $imageHeight;
         }
       }
+    }
+
+    .prose_piece {
+      margin: 0;
+      padding: 5em;
+      text-align: center;
     }
 
     .text {
