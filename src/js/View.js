@@ -128,7 +128,7 @@ module.exports = (model, controller) => {
       ])
     ]),
 
-    "Home": () => h("div", [
+    Home: () => h("div", [
       h("section.gallery", createImagesVirtualDiv("Home")),
     ]),
   };
@@ -155,9 +155,6 @@ module.exports = (model, controller) => {
         newVirtualRoot = createModalVirtualRoot(model.getCurrentImage());
       } else {
         var viewName = model.getViewName();
-        if (viewName === "Teddy HallPhotography") {
-          viewName = "Home";
-        }
         newVirtualRoot = createVirtualRoot[viewName]();
       }
       patch(domRoot, diff(virtualRoot, newVirtualRoot));

@@ -38,6 +38,7 @@
     "watchify": "^3.1.1"
   },
   "dependencies": {
+    "director": "^1.2.8",
     "ramda": "^0.13.0",
     "virtual-dom": "^2.0.1"
   }

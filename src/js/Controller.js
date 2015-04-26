@@ -1,18 +1,20 @@
-const createNavEvents = require('./createNavEvents.js');
 const galleryData = require('./data/galleryData.js');
 const Model = require('./Model.js');
 const View = require('./View.js');
 const ui = require('./ui.js');
+const Router = require('./Router');
+const createNavEvents = require('./createNavEvents.js');
 
 module.exports = () => {
   const model = Model(galleryData);
   const controller = {};
 
-  createNavEvents(controller);
   const view = View(model, controller);
 
-  controller.menuClick = (viewName) => {
-    model.setViewName(viewName);
+  createNavEvents();
+
+  controller.menuClick = () => {
+    model.setViewName(window.location.hash.slice(1));
     view.render();
   };
 
@@ -36,6 +38,8 @@ module.exports = () => {
     model.isModal = false;
     view.render();
   };
+
+  Router(controller);
 
   view.render();
 };

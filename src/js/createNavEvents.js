@@ -6,8 +6,8 @@ module.exports = (controller) => {
       "expanded" :
       "collapsed", [].slice.call(document.querySelectorAll("nav > ul > li > div")));
 
-  R.forEach(
-    (link) => link.onclick = () => controller.menuClick(link.textContent),
-    R.filter((element) => element.tagName !== "LI" || !element.children.length, [].slice.call(document.querySelectorAll('nav > div.home, nav li')))
-  );
+  R.forEach((link) => link.onclick = () => window.location.hash = link.textContent,
+    R.filter((element) => element.tagName !== "LI" || !element.children.length, [].slice.call(document.querySelectorAll("nav li"))));
+
+    document.querySelector("nav > div.home").onclick = () => window.location.hash = "Home"; 
 };
