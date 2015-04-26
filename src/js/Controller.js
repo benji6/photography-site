@@ -14,21 +14,20 @@ module.exports = () => {
   createNavEvents();
 
   controller.menuClick = () => {
-    model.setViewName(window.location.hash.slice(1));
     view.render();
   };
 
-  controller.openModal = (src) => {
-    model.setCurrentImage(src);
+  controller.openModal = () => {
+    model.setCurrentImage(window.location.hash.slice(1));
     model.isModal = true;
     ui.setEscape(controller.closeModal);
     ui.setLeft(() => {
       model.setPrevImage();
-      view.render();
+      window.location.hash = model.getCurrentImage();
     });
     ui.setRight(() => {
       model.setNextImage();
-      view.render();
+      window.location.hash = model.getCurrentImage();
     });
     view.render();
   };
@@ -36,10 +35,10 @@ module.exports = () => {
   controller.closeModal = () => {
     ui.reset();
     model.isModal = false;
-    view.render();
+    window.location.hash = model.getViewName();
   };
 
-  Router(controller);
+  Router(model, controller);
 
   view.render();
 };

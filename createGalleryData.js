@@ -3,14 +3,8 @@ var R = require('ramda');
 var path = require('path');
 
 module.exports = function () {
-  var galleriesData = {
-    Home: {
-      imageSources: [
-        "images/Gesture/13.jpg"
-      ],
-    }
-  };
-
+  var galleriesData = {};
+  
   R.forEach(function (galleryName) {
     galleriesData[galleryName] = {
       imageSources: R.map(function (filename) {

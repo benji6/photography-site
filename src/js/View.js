@@ -8,7 +8,7 @@ module.exports = (model, controller) => {
   const createImagesVirtualDiv = (viewName) => {
     return h("div.images", R.map((src) => h("img.thumb", {
       oncontextmenu: () => false,
-      onclick: () => controller.openModal(src),
+      onclick: () => window.location.hash = src,
       src
     }), model.getImageSources(viewName)));
   };
