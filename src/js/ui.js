@@ -3,9 +3,7 @@ const keyboardListeners = require('./ui/keyboardListeners.js');
 const swipeListeners = require('./ui/swipeListeners.js');
 
 module.exports = {
-  setEscape: (fn) => {
-    keyboardListeners.escape = fn;
-  },
+  setEscape: (fn) => keyboardListeners.escape = fn,
   setLeft: (fn) => {
     keyboardListeners.left = fn;
     swipeListeners.left = fn;
