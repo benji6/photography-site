@@ -1,3 +1,5 @@
+@import "_vars";
+
 @font-face {
   font-family: 'sinanova-regularregular';
   src: url('fonts/SinaNovaReg-webfont.eot');
@@ -11,13 +13,13 @@
 }
 
 body {
-  background-color: #f3f3f3;
-  color: #040404;
+  background-color: $white;
+  color: $black;
   font-family: "sinanova-regularregular", "Georgia", serif;
   margin: 0;
 
   div.modalWindow {
-    background-color: #000;
+    background-color: $total-black;
     height: 100%;
     position: fixed;
     top: 0;
@@ -98,9 +100,6 @@ body {
   }
 
   #mutable_content {
-    $imageHeight: 80vh;
-    $topMargin: (100vh - 3vh - $imageHeight) / 2;
-
     .description {
       font-size: 0.85em;
       float: left;

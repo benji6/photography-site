@@ -82,7 +82,7 @@ gulp.task("watch", function () {
   gulp.watch(distPath + 'images/**/*.jpg', ["createGalleryData"]);
   gulp.watch('src/index.html', ["html"]);
   gulp.watch('src/js/**/*.js', ["jsDev"]);
-  gulp.watch('src/sass/style.scss', ["sass"]);
+  gulp.watch('src/sass/**/*.scss', ["sass"]);
   gulp.watch(distPath + "*", ["reload"]);
 });
 
