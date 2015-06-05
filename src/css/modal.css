@@ -1,0 +1,27 @@
+div.modalWindow {
+  background-color: var(--total-black);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+div.modalWindow div.clickArea {
+  cursor: pointer;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+div.modalWindow img {
+  bottom: 0;
+  display: block;
+  left: 0;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
