@@ -1,5 +1,5 @@
 const autoprefixer = require('gulp-autoprefixer');
-const babel = require("gulp-babel");
+const babelify = require('babelify');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const connect = require('gulp-connect');
@@ -32,29 +32,27 @@ gulp.task("html", function () {
 });
 
 gulp.task("jsDist", function () {
-  const bundler = watchify(browserify('./src/js/main.js', watchify.args));
-
-  bundler.bundle()
+  watchify(browserify('./src/js/main.js', watchify.args))
+    .transform(babelify)
+    .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source("bundle.js"))
     .pipe(plumber())
     .pipe(buffer())
-    .pipe(babel())
     .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task("jsDev", function () {
-  const bundler = watchify(browserify('./src/js/main.js', watchify.args));
-
-  bundler.bundle()
+  watchify(browserify('./src/js/main.js', watchify.args))
+    .transform(babelify)
+    .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source("bundle.js"))
     .pipe(plumber())
     .pipe(buffer())
     .pipe(sourcemaps.init())
-    .pipe(babel())
     .pipe(sourcemaps.write('.'))
     .pipe(plumber.stop())
     .pipe(gulp.dest(distPath));
