@@ -1,0 +1,13 @@
+div.contact_details h2 {
+  margin-top: 0;
+  padding-top: 2em;
+  text-align: center;
+}
+
+div.contact_details table {
+  margin: auto;
+}
+
+div.contact_details td {
+  padding: 0.4em;
+}

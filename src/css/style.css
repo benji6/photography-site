@@ -2,6 +2,7 @@
 @import "modal";
 @import "mutable_content";
 @import "nav";
+@import "contact_details";
 
 @font-face {
   font-family: 'sinanova-regularregular';
@@ -25,20 +26,4 @@ body {
 img {
   cursor: pointer;
   user-select: none;
-}
-
-div.contact_details {
-  h2 {
-    margin-top: 0;
-    padding-top: 2em;
-    text-align: center;
-  }
-
-  table {
-    margin: auto;
-
-    td {
-      padding: 0.4em;
-    }
-  }
 }
