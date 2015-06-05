@@ -1,0 +1,7 @@
+:root {
+  --black: #040404;
+  --total-black: #000;
+  --white: #f3f3f3;
+  --image-height: 80vh;
+  --top-margin: calc((100vh - 3vh - var(--image-height)) / 2);
+}

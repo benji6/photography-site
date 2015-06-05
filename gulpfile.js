@@ -1,14 +1,15 @@
-const autoprefixer = require('gulp-autoprefixer');
 const babelify = require('babelify');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const connect = require('gulp-connect');
+const cssnext = require('cssnext');
+const csswring = require('csswring');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const minifycss = require('gulp-minify-css');
 const minifyHTML = require('gulp-minify-html');
 const plumber = require('gulp-plumber');
-const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const postcssNested = require('postcss-nested');
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require("gulp-uglify");
@@ -58,32 +59,28 @@ gulp.task("jsDev", function () {
     .pipe(gulp.dest(distPath));
 });
 
-gulp.task('sass', function () {
-  gulp.src('./src/sass/style.scss')
+gulp.task("css", function () {
+  return gulp.src("src/css/style.css")
     .pipe(plumber())
-    .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: [
-        'last 3 versions'
-      ],
-      cascade: false
-    }))
-    .pipe(minifycss())
-    .pipe(plumber.stop())
+    .pipe(postcss([
+      postcssNested(),
+      cssnext(),
+      csswring,
+    ]))
     .pipe(gulp.dest(distPath));
 });
 
 gulp.task('createGalleryData', createGalleryData);
 
 gulp.task("watch", function () {
-  gulp.start("createGalleryData", "html", "jsDev", "sass", "connect");
+  gulp.start("createGalleryData", "html", "jsDev", "css", "connect");
   gulp.watch(distPath + 'images/**/*.jpg', ["createGalleryData"]);
   gulp.watch('src/index.html', ["html"]);
   gulp.watch('src/js/**/*.js', ["jsDev"]);
-  gulp.watch('src/sass/**/*.scss', ["sass"]);
+  gulp.watch('src/css/**/*.css', ["css"]);
   gulp.watch(distPath + "*", ["reload"]);
 });
 
-gulp.task("build", ["createGalleryData", "html", "jsDist", "sass"]);
+gulp.task("build", ["createGalleryData", "html", "jsDist", "css"]);
 
 gulp.task("default", ["watch"]);

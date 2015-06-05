@@ -1,4 +1,4 @@
-@import "_vars";
+@import "vars";
 
 @font-face {
   font-family: 'sinanova-regularregular';
@@ -13,13 +13,13 @@
 }
 
 body {
-  background-color: $white;
-  color: $black;
+  background-color: var(--white);
+  color: var(--black);
   font-family: "sinanova-regularregular", "Georgia", serif;
   margin: 0;
 
   div.modalWindow {
-    background-color: $total-black;
+    background-color: var(--total-black);
     height: 100%;
     position: fixed;
     top: 0;
@@ -104,7 +104,7 @@ body {
       font-size: 0.85em;
       float: left;
       margin: 0 0.5em;
-      padding : $topMargin 0 0 0;
+      padding: var(--top-margin) 0 0 0;
       width: 30%;
 
       h2 {
@@ -123,8 +123,8 @@ body {
         white-space: nowrap;
 
         img.thumb {
-          margin: $topMargin 1em 0 1em;
-          height: $imageHeight;
+          margin: var(--top-margin) 1em 0 1em;
+          height: var(--image-height);
         }
       }
     }
