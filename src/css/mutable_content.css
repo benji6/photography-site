@@ -1,42 +1,44 @@
-#mutable_content .description {
-  font-size: 0.85em;
-  float: left;
-  margin: 0 0.5em;
-  padding: var(--top-margin) 0 0 0;
-  width: 30%;
-}
+@media (min-width: 1024px) {
+  #mutable_content .description {
+    font-size: 0.85em;
+    float: left;
+    margin: 0 0.5em;
+    padding: var(--top-margin) 0 0 0;
+    width: 30%;
+  }
 
-#mutable_content .description h2 {
-  margin-top: 0;
-}
+  #mutable_content .description h2 {
+    margin-top: 0;
+  }
 
-#mutable_content .gallery aside {
-  float: left;
-  margin: 0.5em;
-  text-align: center;
-}
+  #mutable_content .gallery aside {
+    float: left;
+    margin: 0.5em;
+    text-align: center;
+  }
 
-#mutable_content .gallery div.images {
-  white-space: nowrap;
-}
+  #mutable_content .gallery div.images {
+    white-space: nowrap;
+  }
 
-#mutable_content .gallery div.images img.thumb {
-  margin: var(--top-margin) 1em 0 1em;
-  height: var(--image-height);
-}
+  #mutable_content .gallery div.images img.thumb {
+    margin: var(--top-margin) 1em 0 1em;
+    height: var(--image-height);
+  }
 
-#mutable_content .prose_piece {
-  margin: 0;
-  padding: 5em;
-  text-align: center;
-}
+  #mutable_content .prose_piece {
+    margin: 0;
+    padding: 5em;
+    text-align: center;
+  }
 
-#mutable_content .text {
-  margin: 0 4em;
-}
+  #mutable_content .text {
+    margin: 0 4em;
+  }
 
-#mutable_content .text h2 {
-  margin-top: 0;
-  padding-top: 2em;
-  text-align: center;
+  #mutable_content .text h2 {
+    margin-top: 0;
+    padding-top: 2em;
+    text-align: center;
+  }
 }
