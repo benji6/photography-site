@@ -9,7 +9,6 @@ const gutil = require('gulp-util');
 const minifyHTML = require('gulp-minify-html');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
-const postcssNested = require('postcss-nested');
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require("gulp-uglify");
@@ -63,7 +62,6 @@ gulp.task("css", function () {
   return gulp.src("src/css/style.css")
     .pipe(plumber())
     .pipe(postcss([
-      postcssNested(),
       cssnext(),
       csswring,
     ]))
