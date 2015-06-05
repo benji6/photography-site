@@ -8,4 +8,5 @@ module.exports = [
   "About",
   "Contact",
   "Exhibitions",
+  "Quintessence",
 ];

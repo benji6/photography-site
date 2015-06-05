@@ -17,7 +17,7 @@ module.exports = (model, controller) => {
     Symbiosis: () => h("div", [
       h("div.description", [
         h("h2", "Symbiosis"),
-        h("p", "This is my latest body of work – an installation piece - which pre-empts the Final Major Project I have created as part of my BA (Hons) Photography degree at Falmouth University:"),
+        h("p", "This installation piece pre-empted my Final Major Project, created as part of my BA (Hons) Photography degree at Falmouth University:"),
         h("p", "Here lies a collection of deliberately collated individual moments; surreal black and white windows on a world only partially understood by its own inhabitants. Diverse in subject yet unified by aesthetic and process, this body of work is a tribute to the phenomenology of all existing matter. From the rippled silt of a riverbed to the shredded sphincter muscle of an iris, at an atomic level all matter is essentially the same. This notion fascinates me and I believe it is a condition that influences all aspects of life, from the behaviour of the universe and the rhythms of nature, to human interaction and issues surrounding contemporary life."),
         h("p", "Over several months I have captured an array of fragile moments that celebrate the kinetic and intricate nature of life as we know it. Through a cyclical process of shooting, processing, darkroom printing and editing the collection, I finally reduced it to a final set of photographs that I feel collude both the beautiful and the sublime in a clamour of texture, light and form."),
         h("p", "N.B. A short piece of self-written prose is included as part of this installation and can be found in the menu.")
@@ -43,7 +43,7 @@ module.exports = (model, controller) => {
     C41: () => h("div", [
       h("section.description", [
         h("h2", "C41"),
-        h("p", "Twelve of my most vivid colour analogue photographs. I am primarily a black and white darkroom based practitioner, but in the summer months I often photograph with C41 as a means of better capturing the kinetic atmosphere and the stunning light.")
+        h("p", "Eleven of my most vivid colour analogue photographs. I am primarily a black and white darkroom based practitioner, but in the summer months I often photograph with C41 as a means of better capturing the kinetic atmosphere and the stunning light.")
       ]),
       h("section.gallery", createImagesVirtualDiv("C41")),
     ]),
@@ -56,10 +56,18 @@ module.exports = (model, controller) => {
       h("section.gallery", createImagesVirtualDiv("Gesture")),
     ]),
 
+    Quintessence: () => h("div", [
+      h("section.description", [
+        h("h2", "Quintessence"),
+        h("p", "This installation of silver gelatin prints is an ode to the fractal symmetry of nature, and a reminder of the phenomenological connection between all matter. We are but a flash in time, and the many helical rhythms and cycles of this planet shall continue to exist and evolve, irrespective of our presence.")
+      ]),
+      h("section.gallery", createImagesVirtualDiv("Quintessence")),
+    ]),
+
     About: () => h("div", [
       h("section.text", [
         h("h2", "About"),
-        h("p", "Fine Art Photographer currently enrolled in my final year at Falmouth University studying BA (Hons) Photography. My interest in this medium began at the age of fourteen when I received my first camera, but peaked when I discovered the darkroom and I haven’t looked back since. Over the past five years my practice has developed and matured, especially during my three year Bachelors course, where I have honed my techniques and cultivated my own voice."),
+        h("p", "My interest in the photographic medium began at a young age, but peaked when I discovered the darkroom and I haven’t looked back since. Over the past five years my practice has developed and matured, especially during my three year BA (Hons) Photography course at Falmouth University, from which I have just graduated. This degree allowed me to cultivate my own voice whilst contextualising my work and honing my technical skills."),
         h("p", "I employ the photographic medium as a means of exploring the realms of science and philosophy. I am interested in the origins of the universe, and the planet we inhabit with all its rhythms and intricacies, questioning where our species belongs in this system and using photography’s stillness to fragment reality and investigate time itself."),
         h("p", "Dedicated to the analogue medium, I print all of my work within the darkroom, often employing experimental and alternative techniques to create unique photographs with depth and aura. Through both my practice and my personal work I am constantly investigating how reality can be captured, preserved and transformed through the lens; my images aim to explore and convey how the intricacies of the human form and psyche can be depicted through the visual language of the photographic medium."),
       ])
