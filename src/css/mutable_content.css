@@ -1,4 +1,17 @@
-@media (min-width: 1024px) {
+@media (max-width: 960px) {
+  #mutable_content .gallery div.images img.thumb {
+    margin: 1em 0;
+    width: 100%;
+  }
+
+  #mutable_content .description,
+  #mutable_content .prose_piece,
+  #mutable_content .text {
+    margin: 0 0.5em;
+  }
+}
+
+@media (min-width: 960px) {
   #mutable_content .description {
     font-size: 0.85em;
     float: left;

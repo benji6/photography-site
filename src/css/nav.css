@@ -1,46 +1,113 @@
-nav {
-  float: left;
-  font-size: 1.1em;
-  min-height: 90vh;
-  padding: 0 2em 0 0.5em;
-  user-select: none;
+@media (max-width: 960px) {
+  nav {
+    font-size: 1.1em;
+    user-select: none;
+  }
+
+  nav div.home {
+    padding-top: 0.5em;
+  }
+
+  nav div.home h1 {
+    cursor: pointer;
+    hyphens: auto;
+    margin: 0;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0.2em 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  nav ul li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em 1em;
+  }
+
+  nav ul li div {
+    height: 100%;
+    padding: 1em 0 0 0;
+    width: 100%;
+  }
+
+  ul {
+    font-size: 0.9em;
+  }
+
+  nav .collapsed ul {
+    display: none;
+  }
+
+  nav .expanded {
+    display: block;
+  }
+
+  nav .expanded {
+    font-weight: 600;
+  }
+
+  nav .expanded li, nav .expanded ul {
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  #projects {
+    background-color: color(var(--white) shade(5%));
+    border-radius: 1em;
+    padding: 0.2em;
+    margin-top: 1em;
+  }
 }
 
-nav div.home {
-  padding-top: 1em;
-}
+@media (min-width: 960px) {
+  nav {
+    float: left;
+    font-size: 1.1em;
+    min-height: 90vh;
+    padding: 0 2em 0 0.5em;
+    user-select: none;
+  }
 
-nav div.home h1 {
-  cursor: pointer;
-  hyphens: auto;
-  margin: 0;
-}
+  nav div.home {
+    padding-top: 1em;
+  }
 
-nav ul {
-  list-style: none;
-  padding: 0 0 0 0.5em;
-}
+  nav div.home h1 {
+    cursor: pointer;
+    hyphens: auto;
+    margin: 0;
+  }
 
-nav ul li {
-  cursor: pointer;
-  margin: 0;
-  padding: 1em 0 0 0;
-}
+  nav ul {
+    list-style: none;
+    padding: 0 0 0 0.5em;
+  }
 
-nav ul li div {
-  height: 100%;
-  padding: 1em 0 0 0;
-  width: 100%;
-}
+  nav ul li {
+    cursor: pointer;
+    margin: 0;
+    padding: 1em 0 0 0;
+  }
 
-nav ul li.collapsed, nav ul li.expanded {
-  padding: 0;
-}
+  nav ul li div {
+    height: 100%;
+    padding: 1em 0 0 0;
+    width: 100%;
+  }
 
-ul {
-  font-size: 0.9em;
-}
+  nav ul li.collapsed, nav ul li.expanded {
+    padding: 0;
+  }
 
-nav .collapsed ul {
-  display: none;
+  ul {
+    font-size: 0.9em;
+  }
+
+  nav .collapsed ul {
+    display: none;
+  }
 }
