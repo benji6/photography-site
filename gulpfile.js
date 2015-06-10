@@ -4,11 +4,14 @@ const buffer = require('vinyl-buffer');
 const connect = require('gulp-connect');
 const cssnext = require('cssnext');
 const csswring = require('csswring');
+const del = require('del');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const manifest = require('gulp-manifest');
 const minifyHTML = require('gulp-minify-html');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
+const runSequence = require('run-sequence');
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require("gulp-uglify");
@@ -17,22 +20,28 @@ const createGalleryData = require('./createGalleryData.js');
 
 const distPath = "dist/";
 
+gulp.task("clean", function () {
+  return del([
+    distPath + "/**/*.map",
+  ]);
+});
+
 gulp.task("connect", function () {
-  connect.server({livereload: true});
+  return connect.server({livereload: true});
 });
 
 gulp.task("reload", function () {
-  gulp.src(distPath).pipe(connect.reload());
+  return gulp.src(distPath).pipe(connect.reload());
 });
 
 gulp.task("html", function () {
-  gulp.src('./src/index.html')
+  return gulp.src('./src/index.html')
     .pipe(minifyHTML())
     .pipe(gulp.dest(distPath));
 });
 
 gulp.task("jsDist", function () {
-  watchify(browserify('./src/js/main.js', watchify.args))
+  return watchify(browserify('./src/js/main.js', watchify.args))
     .transform(babelify)
     .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
@@ -45,7 +54,7 @@ gulp.task("jsDist", function () {
 });
 
 gulp.task("jsDev", function () {
-  watchify(browserify('./src/js/main.js', watchify.args))
+  return watchify(browserify('./src/js/main.js', watchify.args))
     .transform(babelify)
     .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
@@ -68,17 +77,30 @@ gulp.task("css", function () {
     .pipe(gulp.dest(distPath));
 });
 
-gulp.task('createGalleryData', createGalleryData);
+gulp.task("createGalleryData", createGalleryData);
+
+gulp.task("manifest", function () {
+  return gulp.src("dist/**/*")
+    .pipe(plumber())
+    .pipe(manifest({
+      hash: true,
+      filename: "app.manifest",
+      exclude: "app.manifest",
+     }))
+    .pipe(gulp.dest(distPath));
+});
 
 gulp.task("watch", function () {
-  gulp.start("createGalleryData", "html", "jsDev", "css", "connect");
   gulp.watch(distPath + 'images/**/*.jpg', ["createGalleryData"]);
   gulp.watch('src/index.html', ["html"]);
   gulp.watch('src/js/**/*.js', ["jsDev"]);
   gulp.watch('src/css/**/*.css', ["css"]);
-  gulp.watch(distPath + "*", ["reload"]);
+  gulp.watch("src/**/*", ["manifest"]);
+  gulp.watch(distPath + "**/*", ["reload"]);
 });
 
-gulp.task("build", ["createGalleryData", "html", "jsDist", "css"]);
+gulp.task("build", function () {
+  return runSequence(["clean", "createGalleryData", "html", "jsDist", "css"], "manifest");
+});
 
-gulp.task("default", ["watch"]);
+gulp.task("default", ["watch", "createGalleryData", "html", "jsDev", "css", "connect", "manifest"]);
