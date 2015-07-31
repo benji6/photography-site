@@ -7,7 +7,7 @@ const listeners = {
 };
 
 document.onkeydown = (e) => {
-  const keyCodeEquals = R.eq(e.keyCode);
+  const keyCodeEquals = R.equals(e.keyCode);
   if (keyCodeEquals(27)) {
     return listeners.escape();
   }

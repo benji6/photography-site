@@ -23,14 +23,14 @@ module.exports = (galleryData) => {
     setNextImage: () => {
       const images = galleryData[getViewName()].imageSources;
       const currentIndex = R.indexOf(currentImage, images);
-      const newIndex = R.eq(currentIndex, images.length - 1) ?
+      const newIndex = R.equals(currentIndex, images.length - 1) ?
         currentIndex : currentIndex + 1;
       currentImage = R.nth(newIndex, images);
     },
     setPrevImage: () => {
       const images = galleryData[getViewName()].imageSources;
       const currentIndex = R.indexOf(currentImage, images);
-      const newIndex = R.eq(currentIndex, 0) ?
+      const newIndex = R.equals(currentIndex, 0) ?
         currentIndex : currentIndex - 1;
       currentImage = R.nth(newIndex, images);
     },
