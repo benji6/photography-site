@@ -1,7 +1,7 @@
 module.exports = [
   "Home",
   "Symbiosis",
-  "Prose_Piece",
+  "prosePiece",
   "Darkroom",
   "C41",
   "Gesture",

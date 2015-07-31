@@ -1,9 +1,9 @@
-const galleryData = require('./data/galleryData.js');
-const Model = require('./Model.js');
-const View = require('./View.js');
-const ui = require('./ui.js');
-const Router = require('./Router');
-const createNavEvents = require('./createNavEvents.js');
+const galleryData = require("./data/galleryData.js");
+const Model = require("./Model.js");
+const View = require("./View.js");
+const ui = require("./ui.js");
+const Router = require("./Router");
+const createNavEvents = require("./createNavEvents.js");
 
 const model = Model(galleryData);
 const controller = {};

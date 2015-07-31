@@ -1,7 +1,7 @@
-const R = require('ramda');
-const navLinks = require('./data/navLinks.js');
+const R = require("ramda");
+const navLinks = require("./data/navLinks.js");
 
-module.exports = (controller) => {
+module.exports = () => {
   R.forEach((element) =>
     element.onclick = () => element.parentNode.className = R.eq(element.parentNode.className, "collapsed") ?
       "expanded" :

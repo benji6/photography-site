@@ -7,8 +7,8 @@
   const allowedTime = 3000;
 
 	const listeners = {
-	  left: () => {},
-	  right: () => {}
+		left: () => {},
+		right: () => {},
 	};
 
 document.addEventListener("touchend", (e) => {
@@ -19,7 +19,8 @@ document.addEventListener("touchend", (e) => {
 		return;
 	}
 	if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) {
-		return listeners[distX < 0 ? "right" : "left"]();
+		listeners[distX < 0 ? "right" : "left"]();
+		return;
 	}
 	if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint) {
 		listeners[distY < 0 ? "right" : "left"]();

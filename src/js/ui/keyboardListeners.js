@@ -1,9 +1,9 @@
-var R = require('ramda');
+var R = require("ramda");
 
 const listeners = {
   escape: () => {},
   left: () => {},
-  right: () => {}
+  right: () => {},
 };
 
 document.onkeydown = (e) => {

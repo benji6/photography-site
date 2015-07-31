@@ -60,7 +60,8 @@
       "comma-dangle": [
         1,
         "always-multiline"
-      ]
+      ],
+      "new-cap": [0]
     }
   }
 }
