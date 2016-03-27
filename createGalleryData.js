@@ -14,6 +14,5 @@ module.exports = function () {
   }, fs.readdirSync("dist/images"));
 
   fs.writeFileSync("./src/js/data/galleryData.js", "module.exports = " +
-    JSON.stringify(galleriesData) +
-    ";//eslint-disable-line");
+    JSON.stringify(galleriesData) + ";");
 };

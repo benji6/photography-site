@@ -5,7 +5,6 @@ const connect = require('gulp-connect');
 const cssnext = require('cssnext');
 const csswring = require('csswring');
 const del = require('del');
-const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const minifyHTML = require('gulp-minify-html');
@@ -79,22 +78,16 @@ gulp.task("css", function () {
 
 gulp.task("createGalleryData", createGalleryData);
 
-gulp.task('lint', function () {
-  return gulp.src('src/js/**/*')
-    .pipe(eslint())
-    .pipe(eslint.formatEach());
-});
-
 gulp.task("watch", function () {
   gulp.watch(distPath + 'images/**/*.jpg', ["createGalleryData"]);
   gulp.watch('src/index.html', ["html"]);
-  gulp.watch('src/js/**/*.js', ["lint", "jsDev"]);
+  gulp.watch('src/js/**/*.js', ["jsDev"]);
   gulp.watch('src/css/**/*.css', ["css"]);
   gulp.watch(distPath + "**/*", ["reload"]);
 });
 
 gulp.task("build", function () {
-  return runSequence(["clean", "createGalleryData", "html", "lint", "jsDist", "css"]);
+  return runSequence(["clean", "createGalleryData", "html", "jsDist", "css"]);
 });
 
-gulp.task("default", ["watch", "createGalleryData", "html", "jsDev", "css", "connect", "lint"]);
+gulp.task("default", ["watch", "createGalleryData", "html", "jsDev", "css", "connect"]);
