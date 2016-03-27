@@ -1,41 +1,41 @@
-const galleryData = require("./data/galleryData.js");
-const Model = require("./Model.js");
-const View = require("./View.js");
-const ui = require("./ui.js");
-const Router = require("./Router");
-const createNavEvents = require("./createNavEvents.js");
+const galleryData = require('./data/galleryData.js')
+const Model = require('./Model.js')
+const View = require('./View.js')
+const ui = require('./ui.js')
+const Router = require('./Router')
+const createNavEvents = require('./createNavEvents.js')
 
-const model = Model(galleryData);
-const controller = {};
-const view = View(model, controller);
+const model = Model(galleryData)
+const controller = {}
+const view = View(model, controller)
 
-createNavEvents();
+createNavEvents()
 
 controller.menuClick = () => {
-  view.render();
-};
+  view.render()
+}
 
 controller.openModal = () => {
-  model.setCurrentImage(window.location.hash.slice(1));
-  model.isModal = true;
-  ui.setEscape(controller.closeModal);
+  model.setCurrentImage(window.location.hash.slice(1))
+  model.isModal = true
+  ui.setEscape(controller.closeModal)
   ui.setLeft(() => {
-    model.setPrevImage();
-    window.location.hash = model.getCurrentImage();
-  });
+    model.setPrevImage()
+    window.location.hash = model.getCurrentImage()
+  })
   ui.setRight(() => {
-    model.setNextImage();
-    window.location.hash = model.getCurrentImage();
-  });
-  view.render();
-};
+    model.setNextImage()
+    window.location.hash = model.getCurrentImage()
+  })
+  view.render()
+}
 
 controller.closeModal = () => {
-  ui.reset();
-  model.isModal = false;
-  window.location.hash = model.getViewName();
-};
+  ui.reset()
+  model.isModal = false
+  window.location.hash = model.getViewName()
+}
 
-Router(model, controller);
+Router(model, controller)
 
-view.render();
+view.render()
